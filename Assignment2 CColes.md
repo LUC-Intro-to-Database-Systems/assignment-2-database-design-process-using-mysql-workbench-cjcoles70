@@ -13,12 +13,16 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Product Offering:**
 
-Cake Varieties: Cake shops offer a diverse range of cakes, including classic flavors like chocolate and vanilla, as well as specialty and custom creations.
-Cupcakes and Pastries: In addition to traditional cakes, many cake shops also produce cupcakes, pastries, and other sweet treats.
-Customization:
+> - Cake Varieties: Cake shops offer a diverse range of cakes, including classic flavors like chocolate and vanilla, as well as specialty and custom creations.
+> - Cupcakes and Pastries: In addition to traditional cakes, many cake shops also produce cupcakes, pastries, and other sweet treats.
 
-Custom Orders: Cake shops often take custom orders for special occasions such as birthdays, weddings, and anniversaries. They may create unique designs and decorations based on customer preferences.
-Decoration and Presentation:
+
+**Customization:**
+
+> - Custom Orders: Cake shops often take custom orders for special occasions such as birthdays, weddings, and anniversaries. They may create unique designs and decorations based on customer preferences.
+
+
+**Decoration and Presentation:**
 
 Cake Decoration: Cake decorators work on the visual appeal of cakes, using various techniques like frosting, fondant, and edible decorations to create visually stunning and thematic designs.
 Packaging: Cake shops pay attention to packaging to ensure that cakes are transported safely and maintain their freshness.
@@ -26,12 +30,14 @@ Packaging: Cake shops pay attention to packaging to ensure that cakes are transp
 
 **Retail Sales:**
 
-Storefront Operations: Many cake shops have a physical storefront where customers can walk in and purchase cakes directly.
-Point of Sale (POS): Cake shops often use point-of-sale systems to manage transactions, inventory, and customer orders.
-Online Presence:
+> - Storefront Operations: Many cake shops have a physical storefront where customers can walk in and purchase cakes directly.
+> - Point of Sale (POS): Cake shops often use point-of-sale systems to manage transactions, inventory, and customer orders.
 
-Online Ordering: With the rise of e-commerce, many cake shops offer online ordering services, allowing customers to browse and order cakes from the convenience of their homes.
-Social Media Presence: Cake shops often use social media platforms to showcase their creations, connect with customers, and promote special offers.
+
+**Online Presence:**
+
+> - Online Ordering: With the rise of e-commerce, many cake shops offer online ordering services, allowing customers to browse and order cakes from the convenience of their homes.
+> - Social Media Presence: Cake shops often use social media platforms to showcase their creations, connect with customers, and promote special offers.
 
 
 **Event Catering:**
