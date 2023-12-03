@@ -8,8 +8,9 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Baking Cakes:**
 
-> - Recipe Development: Cosmic Cakes often develops and refine recipes for a variety of cakes, considering factors such as flavor, texture, and presentation.
-> - Baking Process: Skilled Bakers are reasposnible for the combination of ingredients, preparation and baking of cakes. Final decoration is completed by the cake decorators.
+> - Recipe Development: Cosmic Cakes often develops and refine recipes for a variety of cakes, considering factors such as flavor, texture, and presentation.  To ensure consistency in the product, receipes are saved and often referred to.
+> - Baking Process: Skilled Bakers are reasposnible for the combination of ingredients, preparation and baking of cakes. Each Skilled Baker has a signature classic cake, and as such, classic cakes carry the Skilled Bakers name.
+> - Final decoration of the cakes is completed by the cake decorators.
 
 
 **Product Offering:**
