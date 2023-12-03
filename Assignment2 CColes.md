@@ -7,36 +7,34 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Baking Cakes:**
 
-> - Recipe Development: Cake shops often develop and refine recipes for a variety of cakes, considering factors such as flavor, texture, and presentation.
-> - Baking Process: Skilled bakers use a combination of ingredients to prepare and bake cakes, paying attention to details like temperature and timing to ensure quality.
+> - Recipe Development: Cosmic Cakes often develops and refine recipes for a variety of cakes, considering factors such as flavor, texture, and presentation.
+> - Baking Process: Skilled bakers are reasposnible for the combination of ingredients, preparation and baking of cakes. Final decoration is completed by the cake decorators.
 
 
 **Product Offering:**
 
-> - Cake Varieties: Cake shops offer a diverse range of cakes, including classic flavors like chocolate and vanilla, as well as specialty and custom creations.
-> - Cupcakes and Pastries: In addition to traditional cakes, many cake shops also produce cupcakes, pastries, and other sweet treats.
+> - Cake Varieties: Cosmic Cakes provides three categories of cakes. Classic, Seasonal and those for Special Occasions.
+> - Cupcakes: In addition to the traditional cakes, they also produce the same range in Cupcakes.
 
 
 **Customization:**
 
-> - Custom Orders: Cake shops often take custom orders for special occasions such as birthdays, weddings, and anniversaries. They may create unique designs and decorations based on customer preferences.
+> - Custom Orders: Cosmic Cakes often takes custom orders for Special Occasions such as birthdays, weddings, and anniversaries. They may create unique designs and decorations based on customer preferences.
 
 
 **Decoration and Presentation:**
 
-Cake Decoration: Cake decorators work on the visual appeal of cakes, using various techniques like frosting, fondant, and edible decorations to create visually stunning and thematic designs.
-Packaging: Cake shops pay attention to packaging to ensure that cakes are transported safely and maintain their freshness.
+> - Cake Decoration: Cake Decorators work on the visual appeal of cakes, using various techniques like frosting, fondant, and edible decorations to create visually stunning and thematic designs.
+> - Packaging: Cake Decorators are responsible for packaging to ensure that cakes are transported safely and maintain their freshness.
 
 
 **Retail Sales:**
 
-> - Storefront Operations: Many cake shops have a physical storefront where customers can walk in and purchase cakes directly.
-> - Point of Sale (POS): Cake shops often use point-of-sale systems to manage transactions, inventory, and customer orders.
-
+> - Storefront Operations: Cosmic Cakes has a physical storefront where customers can walk in and purchase cakes directly.
 
 **Online Presence:**
 
-> - Online Ordering: With the rise of e-commerce, many cake shops offer online ordering services, allowing customers to browse and order cakes from the convenience of their homes.
+> - Online Ordering: The company as a website where customer can select products, specify and customizations and place orders.
 > - Social Media Presence: Cake shops often use social media platforms to showcase their creations, connect with customers, and promote special offers.
 
 
