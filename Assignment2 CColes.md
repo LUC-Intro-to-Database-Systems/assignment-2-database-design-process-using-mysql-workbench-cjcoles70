@@ -39,11 +39,4 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 > - Social Media Presence: Social media is used to showcase their creations, connect with customers, and promote special offers.  
 
 
-**Event Catering:**  
- 
-Special Events: Some cake shops provide catering services for events, offering a selection of cakes and desserts for parties, weddings, and other celebrations.
-Quality Assurance:
 
-Ingredients: Cake shops prioritize the use of high-quality ingredients to ensure the taste and freshness of their products.
-Hygiene and Sanitation: Adherence to strict hygiene standards is crucial to maintain the quality and safety of the baked goods.
-In summary, a cake shop engages in the art and business of baking and selling cakes, catering to a wide range of customer preferences and special occasions. The success of a cake shop often depends on its ability to balance creativity, quality, and customer satisfaction.
