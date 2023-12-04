@@ -64,42 +64,42 @@ Decoration: Attributes - DecorationID (Primary Key), Technique, Design, Edible
 Packaging: Attributes - PackagingID (Primary Key), PackagingType  
 
 # Associative Entity  
-Order_has_Cake: Attributes - CakeID (Foreign Key), OrderID (Foreign Key)
-Order_has_Cupcake: Attributes - CupcakeID (Foreign Key), OrderID (Foreign Key)
-Cake_has_Decoration: Attributes - CakeID (Foreign Key), DecorationID (Foreign Key)
+Order_has_Cake: Attributes - CakeID (Foreign Key), OrderID (Foreign Key)  
+Order_has_Cupcake: Attributes - CupcakeID (Foreign Key), OrderID (Foreign Key)  
+Cake_has_Decoration: Attributes - CakeID (Foreign Key), DecorationID (Foreign Key)  
 
 
 # Relationships:
 
-One-to-Many relationship between Recipe and Cake (A recipe can be used for multiple cakes, but each cake uses one recipe).  
+One-to-Many relationship between Recipe and Cake (A recipe can be used for multiple cakes, but each cake uses one recipe).   
 
 One-to-One relationship between Baker and Cake (Each baker has a signature cake).  
 
 One-to-Many relationship between Cake and Decoration (A cake can have multiple decorations, but each decoration is for one cake).  
 
-Many-to-Many relationship between Order and Cake (An order can include multiple cakes, and a cake can be part of multiple orders). This relationship is represented using an *associative entity* .
+Many-to-Many relationship between Order and Cake (An order can include multiple cakes, and a cake can be part of multiple orders). This relationship is represented using an *associative entity* .  
 
-One-to-Many relationship between Cake and Packaging (A cake can have one packaging type, but a packaging type can be used for multiple cakes).
+One-to-Many relationship between Cake and Packaging (A cake can have one packaging type, but a packaging type can be used for multiple cakes).  
 
-One-to-Many relationship between Cake and Cupcake (A cake can have multiple cupcakes, but each cupcake is associated with one cake).
+One-to-Many relationship between Cake and Cupcake (A cake can have multiple cupcakes, but each cupcake is associated with one cake).  
 
-One-to-Many relationship between Cake and Baker (A cake is associated with one baker, but a baker may have multiple cakes).
+One-to-Many relationship between Cake and Baker (A cake is associated with one baker, but a baker may have multiple cakes).  
 
-One-to-Many relationship between Order and Packaging (An order can have one packaging type, but a packaging type can be used for multiple orders).
+One-to-Many relationship between Order and Packaging (An order can have one packaging type, but a packaging type can be used for multiple orders).  
 
-One-to-Many relationship between Customer and Order (A customer can place multiple orders, but each order is placed by one customer).
+One-to-Many relationship between Customer and Order (A customer can place multiple orders, but each order is placed by one customer).  
 
-Many-to-Many relationship between Order and Decoration (An order can include multiple decorations, and a decoration can be part of multiple orders). This relationship is represented using an ***associative entity*** .
+Many-to-Many relationship between Order and Decoration (An order can include multiple decorations, and a decoration can be part of multiple orders). This relationship is represented using an ***associative entity*** .  
 
-Many-to-Many relationship between Cake and IcingFondant (A cake can have multiple icing/fondant options, and an icing/fondant option can be used for multiple cakes). This relationship is represented using an ***associative entity*** .
+Many-to-Many relationship between Cake and IcingFondant (A cake can have multiple icing/fondant options, and an icing/fondant option can be used for multiple cakes). This relationship is represented using an ***associative entity*** .  
 
-Many-to-Many relationship between Order and Cupcake (An order can include multiple cupcakes, and a cupcake can be part of multiple orders). This relationship is represented using an ***associative entity*** .
+Many-to-Many relationship between Order and Cupcake (An order can include multiple cupcakes, and a cupcake can be part of multiple orders). This relationship is represented using an ***associative entity*** .  
 
-One-to-Many relationship between Order and Customer (An order is placed by one customer, but a customer may place multiple orders).
+One-to-Many relationship between Order and Customer (An order is placed by one customer, but a customer may place multiple orders).  
 
-One-to-Many relationship between Order and Baker (An order includes cakes baked by one baker, but a baker may have multiple orders).
+One-to-Many relationship between Order and Baker (An order includes cakes baked by one baker, but a baker may have multiple orders).  
 
-One-to-Many relationship between Cake and OnlineOrder (A cake can be part of an online order, but an online order may include multiple cakes).
+One-to-Many relationship between Cake and OnlineOrder (A cake can be part of an online order, but an online order may include multiple cakes).  
 
-One-to-Many relationship between Order and SocialMedia (An order may be promoted on social media, but a social media post may include multiple orders).
+One-to-Many relationship between Order and SocialMedia (An order may be promoted on social media, but a social media post may include multiple orders).  
 
