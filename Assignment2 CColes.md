@@ -43,9 +43,9 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 # Definitions  
 
 **Skilled Bakers:**  Skilled Bakers are bakers those that have served the company for a minimum of 3 years, have worked themselves up through the ranks and whose cakes are celebrated by their peers.   
-**Special Occasions:**  Cakes for Special Occasions are typically for birthdays, weddings, and anniversaries. 
-**Classic** cakes are old time favorites such as ' Old-Fashioned Carrot Cake with Cream Cheese Frosting ', 'Spiced Devil's Food Cake' or 'Oklahoma Coconut Poke Cake'
-**Seasonal** cakes are more aligned to Thanksgiving, Christmas, 4th July etc. ' Apple Spice Cake with Brown Sugar Frosting' or ' Apple Gingerbread Skillet Cake' 
+**Special Occasions:**  Cakes for Special Occasions are typically for birthdays, weddings, and anniversaries.   
+**Classic** cakes are old time favorites such as ' Old-Fashioned Carrot Cake with Cream Cheese Frosting ', 'Spiced Devil's Food Cake' or 'Oklahoma Coconut Poke Cake'  
+**Seasonal** cakes are more aligned to Thanksgiving, Christmas, 4th July etc. ' Apple Spice Cake with Brown Sugar Frosting' or ' Apple Gingerbread Skillet Cake'   
 
 
 
