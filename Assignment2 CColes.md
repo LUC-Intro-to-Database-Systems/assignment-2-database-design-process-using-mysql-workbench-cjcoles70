@@ -47,5 +47,55 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 **Classic** cakes are old time favorites such as ' Old-Fashioned Carrot Cake with Cream Cheese Frosting ', 'Spiced Devil's Food Cake' or 'Oklahoma Coconut Poke Cake'  
 **Seasonal** cakes are more aligned to Thanksgiving, Christmas, 4th July etc. ' Apple Spice Cake with Brown Sugar Frosting' or ' Apple Gingerbread Skillet Cake'   
 
+# Entities:
 
+Recipe: Attributes - RecipeID (Primary Key), Flavor, Texture, Presentation  
+
+Baker: Attributes - BakerID (Primary Key), FirstName, LastName, SignatureCake  
+
+Cake: Attributes - CakeID (Primary Key), CakeName, Size, Shape, Category (Classic, Seasonal, Special Occasion), Tiered (for special occasions), Theme (for children's birthdays), Icing/Fondant (for special occasions)  
+
+Cupcake: Attributes - CupcakeID (Primary Key), CupcakeName, Category (Classic, Seasonal, Special Occasion), Icing/Fondant (for special occasions)  
+
+Order: Attributes - OrderID (Primary Key), OrderDate, CustomerID (Foreign Key)  
+
+Decoration: Attributes - DecorationID (Primary Key), Technique, Design, Edible  
+
+Packaging: Attributes - PackagingID (Primary Key), PackagingType  
+
+# Relationships:
+
+One-to-Many relationship between Recipe and Cake (A recipe can be used for multiple cakes, but each cake uses one recipe).  
+
+One-to-One relationship between Baker and Cake (Each baker has a signature cake).  
+
+One-to-Many relationship between Cake and Decoration (A cake can have multiple decorations, but each decoration is for one cake).  
+
+Many-to-Many relationship between Order and Cake (An order can include multiple cakes, and a cake can be part of multiple orders). This relationship is represented using a junction table.
+
+One-to-Many relationship between Cake and Packaging (A cake can have one packaging type, but a packaging type can be used for multiple cakes).
+
+One-to-Many relationship between Cake and Cupcake (A cake can have multiple cupcakes, but each cupcake is associated with one cake).
+
+One-to-Many relationship between Cake and Baker (A cake is associated with one baker, but a baker may have multiple cakes).
+
+One-to-Many relationship between Order and Packaging (An order can have one packaging type, but a packaging type can be used for multiple orders).
+
+One-to-Many relationship between Customer and Order (A customer can place multiple orders, but each order is placed by one customer).
+
+Many-to-Many relationship between Order and Decoration (An order can include multiple decorations, and a decoration can be part of multiple orders). This relationship is represented using a junction table.
+
+Many-to-Many relationship between Cake and IcingFondant (A cake can have multiple icing/fondant options, and an icing/fondant option can be used for multiple cakes). This relationship is represented using a junction table.
+
+Many-to-Many relationship between Order and Cupcake (An order can include multiple cupcakes, and a cupcake can be part of multiple orders). This relationship is represented using a junction table.
+
+Many-to-Many relationship between Cake and Cupcake (A cake can have multiple cupcakes, and a cupcake can be part of multiple cakes). This relationship is represented using a junction table.
+
+One-to-Many relationship between Order and Customer (An order is placed by one customer, but a customer may place multiple orders).
+
+One-to-Many relationship between Order and Baker (An order includes cakes baked by one baker, but a baker may have multiple orders).
+
+One-to-Many relationship between Cake and OnlineOrder (A cake can be part of an online order, but an online order may include multiple cakes).
+
+One-to-Many relationship between Order and SocialMedia (An order may be promoted on social media, but a social media post may include multiple orders).
 
