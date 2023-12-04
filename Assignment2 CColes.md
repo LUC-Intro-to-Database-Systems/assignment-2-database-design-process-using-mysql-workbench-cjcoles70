@@ -9,14 +9,15 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 **Baking Cakes:**
 
 > - Recipe Development: Cosmic Cakes often develops and refine recipes for a variety of cakes, considering factors such as flavor, texture, and presentation.  To ensure consistency in the product, receipes are saved and often referred to.
-> - Baking Process: Skilled Bakers are reasposnible for the combination of ingredients, preparation and baking of cakes. Each Skilled Baker has a signature classic cake, and as such, classic cakes carry the Skilled Bakers name.
-> - Final decoration of the cakes is completed by the cake decorators.
+> - Baking Process: Skilled Bakers are reasposnible for the combination of ingredients, preparation and baking of cakes. Each Skilled Baker has a signature classic cake, and as such, classic cakes carry the Skilled Bakers name. Final decoration of the cakes is completed by the cake decorators.
 
 
 **Product Offering:**
 
-> - Cake Varieties: Cosmic Cakes provides three categories of cakes. Classic, Seasonal and those for Special Occasions.  
-> - Cupcakes: In addition to the traditional cakes, they also produce the same range in Cupcakes.  
+> - Cake Varieties: Cosmic Cakes provides three categories of cakes. Classic, Seasonal and those for Special Occasions.  All cakes come in three sizes, 6" , 10" and 12" and two types basic of shapes, round and square.
+> - Cakes for special occasions do have some other options. There is the options for tiered cake, starting with a 12" base-section, 9" mid-section and 6" top section. For childrens birthday's there are a variety of other theme cakes e.g cars, planes, Pony etc.
+> - Icing & fondants: A variety of icing and fondants is also available for selction when chosing a ckae for special occasions.
+> - Cupcakes: In addition to the larger cakes, they also produce a range of cupcakes in all three categories.  
 
 
 **Customization:**
@@ -32,7 +33,7 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Retail Sales:**
 
-> - Storefront Operations: Cosmic Cakes has a physical storefront where customers can walk in and purchase cakes directly.  
+> - Storefront Operations: Cosmic Cakes has a physical storefront where customers can walk in and purchase cakes directly.  The Classic cakes and Seasonal cakes are 
 
 **Online Presence:**  
 
@@ -42,7 +43,9 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 # Definitions  
 
 **Skilled Bakers:**  Skilled Bakers are bakers those that have served the company for a minimum of 3 years, have worked themselves up through the ranks and whose cakes are celebrated by their peers.   
-**Special Occasions:**  Special Occasions are birthdays, weddings, and anniversaries.  
+**Special Occasions:**  Cakes for Special Occasions are typically for birthdays, weddings, and anniversaries. 
+**Classic** cakes are old time favorites such as ' Old-Fashioned Carrot Cake with Cream Cheese Frosting ', 'Spiced Devil's Food Cake' or 'Oklahoma Coconut Poke Cake'
+**Seasonal** cakes are more aligned to Thanksgiving, Christmas, 4th July etc. ' Apple Spice Cake with Brown Sugar Frosting' or ' Apple Gingerbread Skillet Cake' 
 
 
 
