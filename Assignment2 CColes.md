@@ -49,11 +49,11 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 # Entities:
 
-Recipe: Attributes - RecipeID (Primary Key), Flavor, Texture, Presentation  
+Recipe: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Recipe_Instructions, Recipe_author, Recipe_date  
 
 Baker: Attributes - BakerID (Primary Key), FirstName, LastName, SignatureCake  
 
-Cake: Attributes - CakeID (Primary Key), CakeName, Size, Shape, Category (Classic, Seasonal, Special Occasion), Tiered (for special occasions), Theme (for children's birthdays), Icing/Fondant (for special occasions)  
+Cake: Attributes - CakeID (Primary Key), CakeName, Cake_Size, Cake_Shape, Category (Classic, Seasonal, Special Occasion), Tiered (for special occasions), Theme (for children's birthdays), Icing/Fondant (for special occasions)  
 
 Cupcake: Attributes - CupcakeID (Primary Key), CupcakeName, Category (Classic, Seasonal, Special Occasion), Icing/Fondant (for special occasions)  
 
@@ -62,6 +62,12 @@ Order: Attributes - OrderID (Primary Key), OrderDate, CustomerID (Foreign Key)
 Decoration: Attributes - DecorationID (Primary Key), Technique, Design, Edible  
 
 Packaging: Attributes - PackagingID (Primary Key), PackagingType  
+
+# Associative Entity  
+Order_has_Cake: Attributes - CakeID (Foreign Key), OrderID (Foreign Key)
+Order_has_Cupcake: Attributes - CupcakeID (Foreign Key), OrderID (Foreign Key)
+Cake_has_Decoration: Attributes - CakeID (Foreign Key), DecorationID (Foreign Key)
+
 
 # Relationships:
 
@@ -83,13 +89,11 @@ One-to-Many relationship between Order and Packaging (An order can have one pack
 
 One-to-Many relationship between Customer and Order (A customer can place multiple orders, but each order is placed by one customer).
 
-Many-to-Many relationship between Order and Decoration (An order can include multiple decorations, and a decoration can be part of multiple orders). This relationship is represented using an *associative entity* .
+Many-to-Many relationship between Order and Decoration (An order can include multiple decorations, and a decoration can be part of multiple orders). This relationship is represented using an ***associative entity*** .
 
-Many-to-Many relationship between Cake and IcingFondant (A cake can have multiple icing/fondant options, and an icing/fondant option can be used for multiple cakes). This relationship is represented using an *associative entity* .
+Many-to-Many relationship between Cake and IcingFondant (A cake can have multiple icing/fondant options, and an icing/fondant option can be used for multiple cakes). This relationship is represented using an ***associative entity*** .
 
-Many-to-Many relationship between Order and Cupcake (An order can include multiple cupcakes, and a cupcake can be part of multiple orders). This relationship is represented using an *associative entity* .
-
-Many-to-Many relationship between Cake and Cupcake (A cake can have multiple cupcakes, and a cupcake can be part of multiple cakes). This relationship is represented using an *associative entity* .
+Many-to-Many relationship between Order and Cupcake (An order can include multiple cupcakes, and a cupcake can be part of multiple orders). This relationship is represented using an ***associative entity*** .
 
 One-to-Many relationship between Order and Customer (An order is placed by one customer, but a customer may place multiple orders).
 
