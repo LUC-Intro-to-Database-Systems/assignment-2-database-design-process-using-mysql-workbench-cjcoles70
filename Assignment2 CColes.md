@@ -59,9 +59,11 @@ SIZESHAPE: Attributes - SizeShapeID, Shape, Size
 
 ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_has_itemId (Foreign Key),Order_status (Draft or Firm)  
 
-ITEM: Attributes - Item_ID, Item_Description, Item_has_DecorationsID (Foreign Key), Order_message, Item_has_CakeID (Foreign Key), SizeShapeID (Foreign Key),Item_Qty,Item_has_decorationsID (Foreign Key)
+ITEM: Attributes - Item_ID, Item_Description, Item_has_DecorationsID (Foreign Key), Order_message, CakeID (Foreign Key), SizeShapeID (Foreign Key),Item_Qty,Item_has_decorationsID (Foreign Key)
 
-DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name 
+FIRMORDERITEMS: Attributes - OrderID, Item_ID, BakerID, DecoratorID
+
+DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name , Dec_Shape, Dec_Color
 
 CUSTOMER: Attributes - CustomerID, Customer_AddressID,Customer_Phone,Customer_Email
 
@@ -71,14 +73,13 @@ STAFF_ADDRESS: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff
 
 # Associative Entity  
 ORDER_has_ITEM: Attributes - ItemID (Foreign Key), OrderID (Foreign Key)   
-ITEM_has_CAKE: Attributes - CakeID (Foreign Key),ItemID (Foreign Key)   
 ITEM_has_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID   
-STAFF_make_ITEM: Attributes - Order_OrderID, Order_Items_itemID, BakerID, DecoratorID   
+
 
 # Relationships:
 
-One-to-One relationship between Recipe and Cake (A recipe can be used for multiple cakes, but each cake uses one recipe).   
-
+a CAKE has a RECIPE: a RECIPE is used for many CAKE. There is One-to-Many relationship between Recipe and Cake  
+one STAFF will bake and one Staff will decorate many FIRMORDERITEMS: FIRMORDERITEMS are baked and decorated by many STAFF. There is a One-to-Many relationship between Staff and firm order items  
 One-to-One relationship between Baker and Cake (Each baker has a signature cake).  
 
 One-to-Many relationship between Cake and Decoration (A cake can have multiple decorations, but each decoration is for one cake).  
