@@ -78,9 +78,10 @@ ITEM_has_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID
 
 # Relationships:
 
-a CAKE has a RECIPE: a RECIPE is used for many CAKE. There is One-to-Many relationship between Recipe and Cake  
+a CAKE has a RECIPE: a RECIPE is used for many CAKE. There is One-to-Many relationship between Recipe and Cake
+
 one STAFF will bake and one Staff will decorate many FIRMORDERITEMS: FIRMORDERITEMS are baked and decorated by many STAFF. There is a One-to-Many relationship between Staff and firm order items  
-One-to-One relationship between Baker and Cake (Each baker has a signature cake).  
+ 
 
 One-to-Many relationship between Cake and Decoration (A cake can have multiple decorations, but each decoration is for one cake).  
 
