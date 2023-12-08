@@ -53,13 +53,13 @@ RECIPE: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Re
 
 STAFF: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email 
 
-CAKE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),Cake_RecipeID
+CAKE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),RecipeID (Foreign Key)
 
 SIZESHAPE: Attributes - SizeShapeID, Shape, Size
 
-ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_status  
+ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_has_itemId (Foreign Key),Order_status (Draft or Firm)  
 
-ITEM: Attributes - Item_ID, Item_Description, Order_DecorationsID, Order_message, CakeID, Size_ShapeID,Item_Qty,Item_has_decorationsID
+ITEM: Attributes - Item_ID, Item_Description, Item_has_DecorationsID (Foreign Key), Order_message, Item_has_CakeID (Foreign Key), SizeShapeID (Foreign Key),Item_Qty,Item_has_decorationsID (Foreign Key)
 
 DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name 
 
@@ -69,8 +69,7 @@ CUSTOMER_ADDRESS: Attributes - Cust_Address_ID, Cust_CustomerID, Cust_Address1, 
 
 STAFF_ADDRESS: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State
 
-# Associative Entity 
-CAKE_has_SIZESHAPE: Attributes - CakeID (Foreign Key), SizeShapeID Foreign Key)  
+# Associative Entity  
 ORDER_has_ITEM: Attributes - ItemID (Foreign Key), OrderID (Foreign Key)   
 ITEM_has_CAKE: Attributes - CakeID (Foreign Key),ItemID (Foreign Key)   
 ITEM_has_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID   
@@ -78,7 +77,7 @@ STAFF_make_ITEM: Attributes - Order_OrderID, Order_Items_itemID, BakerID, Decora
 
 # Relationships:
 
-One-to-Many relationship between Recipe and Cake (A recipe can be used for multiple cakes, but each cake uses one recipe).   
+One-to-One relationship between Recipe and Cake (A recipe can be used for multiple cakes, but each cake uses one recipe).   
 
 One-to-One relationship between Baker and Cake (Each baker has a signature cake).  
 
