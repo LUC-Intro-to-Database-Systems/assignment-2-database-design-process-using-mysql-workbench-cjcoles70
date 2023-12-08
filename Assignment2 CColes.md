@@ -49,33 +49,32 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 # Entities:
 
-Recipe: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Recipe_Instructions, Recipe_authorID, Recipe_date  
+RECIPE: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Recipe_Instructions, Recipe_date  
 
-Staff: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email 
+STAFF: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email 
 
-Cake: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),Cake_RecipeID
+CAKE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),Cake_RecipeID
 
-Cake_Size_Shape: Attributes - Cake_Size_ShapeID, Cake_Shape, Cake_Size
+SIZESHAPE: Attributes - SizeShapeID, Shape, Size
 
-Order: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_status  
+ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_status  
 
-Item: Attributes - Item_ID, Item_Description, Order_DecorationsID, Order_message, CakeID, Cake_Size_ShapeID,Item_Qty,Item_has_decorationsID
+ITEM: Attributes - Item_ID, Item_Description, Order_DecorationsID, Order_message, CakeID, Size_ShapeID,Item_Qty,Item_has_decorationsID
 
-Decorations: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name 
+DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name 
 
-Customer: Attributes - CustomerID, Customer_AddressID,Customer_Phone,Customer_Email
+CUSTOMER: Attributes - CustomerID, Customer_AddressID,Customer_Phone,Customer_Email
 
-Cuatomer_Address: Attributes - Cust_Address_ID, Cust_CustomerID, Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State
+CUSTOMER_ADDRESS: Attributes - Cust_Address_ID, Cust_CustomerID, Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State
 
-Staff_Address: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State
+STAFF_ADDRESS: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State
 
-# Associative Entity  
-Order_has_Item: Attributes - ItemID (Foreign Key), OrderID (Foreign Key)  
-Item_has_Cake: Attributes - CakeID (Foreign Key),ItemID (Foreign Key)
-Item_has_Decorations: Attributes - ItemID (Foreign Key),DecorationID
-Staff_make_Item: Attributes - Order_OrderID, Order_Items_itemID, BakerID, DecoratorID
-
-
+# Associative Entity 
+CAKE_has_SIZESHAPE: Attributes - CakeID (Foreign Key), SizeShapeID Foreign Key)  
+ORDER_has_ITEM: Attributes - ItemID (Foreign Key), OrderID (Foreign Key)   
+ITEM_has_CAKE: Attributes - CakeID (Foreign Key),ItemID (Foreign Key)   
+ITEM_has_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID   
+STAFF_make_ITEM: Attributes - Order_OrderID, Order_Items_itemID, BakerID, DecoratorID   
 
 # Relationships:
 
@@ -87,7 +86,7 @@ One-to-Many relationship between Cake and Decoration (A cake can have multiple d
 
 Many-to-Many relationship between Order and Cake (An order can include multiple cakes, and a cake can be part of multiple orders). This relationship is represented using an *associative entity* .  
 
-One-to-Many relationship between Cake and Packaging (A cake can have one packaging type, but a packaging type can be used for multiple cakes).  
+
 
 One-to-Many relationship between Cake and Cupcake (A cake can have multiple cupcakes, but each cupcake is associated with one cake).  
 
