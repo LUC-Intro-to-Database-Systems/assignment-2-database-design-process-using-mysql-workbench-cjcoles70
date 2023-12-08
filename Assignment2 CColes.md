@@ -57,9 +57,7 @@ Cake: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasona
 
 Cake_Size_Shape: Attributes - Cake_Size_ShapeID, Cake_Shape, Cake_Size
 
-Order: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_status
-
-Cake_Make: Attributes - Order_OrderID, Order_Items_itemID, BakerID, DecoratorID
+Order: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_status  
 
 Item: Attributes - Item_ID, Item_Description, Order_DecorationsID, Order_message, CakeID, Cake_Size_ShapeID,Item_Qty,Item_has_decorationsID
 
@@ -73,6 +71,9 @@ Staff_Address: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff
 
 # Associative Entity  
 Order_has_Item: Attributes - ItemID (Foreign Key), OrderID (Foreign Key)  
+Item_has_Cake: Attributes - CakeID (Foreign Key),ItemID (Foreign Key)
+Item_has_Decorations: Attributes - ItemID (Foreign Key),DecorationID
+Staff_make_Item: Attributes - Order_OrderID, Order_Items_itemID, BakerID, DecoratorID
 
 
 
