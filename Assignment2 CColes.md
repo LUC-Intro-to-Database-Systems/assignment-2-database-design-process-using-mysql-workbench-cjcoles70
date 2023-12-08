@@ -9,7 +9,7 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 **Baking Cakes:**
 
 > - Recipe Development: Cosmic Cakes often develops and refine recipes for a variety of cakes, considering factors such as flavor, texture, and presentation.  To ensure consistency in the product, receipes are saved and often referred to.
-> - Baking Process: Skilled Bakers are reasposnible for the combination of ingredients, preparation and baking of cakes. Each Skilled Baker has a signature classic cake, and as such, classic cakes carry the Skilled Bakers name. Final decoration of the cakes is completed by the cake decorators.
+> - Baking Process: Skilled Bakers are reasposnible for the combination of ingredients, preparation and baking of cakes. Final decoration of the cakes is completed by the cake decorators.
 
 
 **Product Offering:**
@@ -33,7 +33,7 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Retail Sales:**
 
-> - Storefront Operations: Cosmic Cakes has a physical storefront where customers can walk in and purchase cakes directly.  Classic cakes and Seasonal cakes are baked fresh every day and are available for purchase the same day in the store.
+> - Storefront Operations: Cosmic Cakes has a physical storefront where customers can walk in and purchase cakes directly.  Classic cakes and Seasonal cakes are baked fresh every day and are available for purchase the same day in the store. Cakes for Special Ocassions are by order only.
 
 **Online Presence:**  
 
@@ -53,15 +53,17 @@ Recipe: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Re
 
 Staff: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email 
 
-Cake: Attributes - CakeID (Primary Key), CakeName,CakeType, Cake_Size, Cake_Shape, Category (Classic, Seasonal, Special Occasion), Tiered (for special occasions), Theme (for children's birthdays),Cake_RecipeID
+Cake: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),Cake_RecipeID
 
-Order: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_DecorationsID, Order_message, Order_status
+Cake_Size_Shape: Attributes - Cake_Size_ShapeID, Cake_Shape, Cake_Size
 
-Order_Items: Attributes - ItemID, Item_Description
+Order: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_status
+
+Cake_Make: Attributes - Order_OrderID, Order_Items_itemID, BakerID, DecoratorID
+
+Item: Attributes - Item_ID, Item_Description, Order_DecorationsID, Order_message, CakeID, Cake_Size_ShapeID,Item_Qty,Item_has_decorationsID
 
 Decorations: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name 
-
-Packaging: Attributes - PackagingID (Primary Key), Packaging_Type  
 
 Customer: Attributes - CustomerID, Customer_AddressID,Customer_Phone,Customer_Email
 
@@ -69,12 +71,9 @@ Cuatomer_Address: Attributes - Cust_Address_ID, Cust_CustomerID, Cust_Address1, 
 
 Staff_Address: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State
 
-
-
 # Associative Entity  
-Order_has_Cake: Attributes - CakeID (Foreign Key), OrderID (Foreign Key)  
-Order_has_Cupcake: Attributes - CupcakeID (Foreign Key), OrderID (Foreign Key)  
-Cake_has_Decoration: Attributes - CakeID (Foreign Key), DecorationID (Foreign Key)  
+Order_has_Item: Attributes - ItemID (Foreign Key), OrderID (Foreign Key)  
+
 
 
 # Relationships:
