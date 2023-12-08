@@ -33,7 +33,7 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Retail Sales:**
 
-> - Storefront Operations: Cosmic Cakes has a physical storefront where customers can walk in and purchase cakes directly.  The Classic cakes and Seasonal cakes are 
+> - Storefront Operations: Cosmic Cakes has a physical storefront where customers can walk in and purchase cakes directly.  Classic cakes and Seasonal cakes are baked fresh every day and are available for purchase the same day in the store.
 
 **Online Presence:**  
 
@@ -49,19 +49,27 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 # Entities:
 
-Recipe: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Recipe_Instructions, Recipe_author, Recipe_date  
+Recipe: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Recipe_Instructions, Recipe_authorID, Recipe_date  
 
-Baker: Attributes - BakerID (Primary Key), FirstName, LastName, SignatureCake  
+Staff: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email 
 
-Cake: Attributes - CakeID (Primary Key), CakeName, Cake_Size, Cake_Shape, Category (Classic, Seasonal, Special Occasion), Tiered (for special occasions), Theme (for children's birthdays), Icing/Fondant (for special occasions)  
+Cake: Attributes - CakeID (Primary Key), CakeName,CakeType, Cake_Size, Cake_Shape, Category (Classic, Seasonal, Special Occasion), Tiered (for special occasions), Theme (for children's birthdays),Cake_RecipeID
 
-Cupcake: Attributes - CupcakeID (Primary Key), CupcakeName, Category (Classic, Seasonal, Special Occasion), Icing/Fondant (for special occasions)  
+Order: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_itemsId,Order_DecorationsID, Order_message, Order_status
 
-Order: Attributes - OrderID (Primary Key), OrderDate, CustomerID (Foreign Key)  
+Order_Items: Attributes - ItemID, Item_Description
 
-Decoration: Attributes - DecorationID (Primary Key), Technique, Design, Edible  
+Decorations: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name 
 
-Packaging: Attributes - PackagingID (Primary Key), PackagingType  
+Packaging: Attributes - PackagingID (Primary Key), Packaging_Type  
+
+Customer: Attributes - CustomerID, Customer_AddressID,Customer_Phone,Customer_Email
+
+Cuatomer_Address: Attributes - Cust_Address_ID, Cust_CustomerID, Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State
+
+Staff_Address: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State
+
+
 
 # Associative Entity  
 Order_has_Cake: Attributes - CakeID (Foreign Key), OrderID (Foreign Key)  
