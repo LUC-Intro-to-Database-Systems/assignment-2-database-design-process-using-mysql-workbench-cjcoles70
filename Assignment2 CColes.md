@@ -36,7 +36,7 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Online Presence:**  
 
-> - Online Ordering: The company as a website where customer can select products, specify and customizations and place orders.  Orders are not completed until payment has been made.  
+> - Online Ordering: The company as a website where customer can select products, specify and customizations and place orders.  Order items are not made until payment has been done.  
 
 # Definitions  
 
