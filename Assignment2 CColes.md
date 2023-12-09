@@ -48,48 +48,49 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 RECIPE: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Recipe_Instructions, Recipe_date  
 
-STAFF: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email 
+STAFF: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email   
 
-CAKE_TYPE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),RecipeID (Foreign Key)
+CAKE_TYPE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),RecipeID (Foreign Key)   
 
-SIZE_SHAPE: Attributes - SizeShapeID (Primary Key), Shape, Size
+SIZE_SHAPE: Attributes - SizeShapeID (Primary Key), Shape, Size   
 
-CAKE_PRICE: Attributes - CakeID (Primary Key), SizeShapeID, Cake_Sell_Price
+CAKE_PRICE: Attributes - CakeID (Primary Key), SizeShapeID, Cake_Sell_Price   
 
-ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),payment_status (Paid or Unpaid) ,Order_has_itemId (Foreign Key) 
+ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),payment_status (Paid or Unpaid) ,Order_has_itemId (Foreign Key)   
 
-ORDER_ITEM: Attributes - ItemID (Primary Key), Item_Description, Order_message,Item_Qty, CakeID (Foreign Key), Size_ShapeID (Foreign Key), Item_has_DecorationsID (Foreign Key)
+ORDER_ITEM: Attributes - ItemID (Primary Key), Item_Description, Order_message,Item_Qty, CakeID (Foreign Key), Size_ShapeID (Foreign Key), Item_has_DecorationsID (Foreign  
+ Key)
 
-DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name , Dec_Shape, Dec_Color, Dec_Sell_Price
+DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name , Dec_Shape, Dec_Color, Dec_Sell_Price   
 
-CUSTOMER: Attributes - CustomerID(Primary Key) , Customer_AddressID,Customer_Phone,Customer_Email
+CUSTOMER: Attributes - CustomerID(Primary Key) , Customer_AddressID,Customer_Phone,Customer_Email   
 
-CUSTOMER_ADDRESS: Attributes - Cust_Address_ID(Primary Key) , Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State, CustomerID (Foreign Key)
+CUSTOMER_ADDRESS: Attributes - Cust_Address_ID(Primary Key) , Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State, CustomerID (Foreign Key)   
 
-STAFF_ADDRESS: Attributes - Staff_Address_ID (Primary Key), Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State, StaffID (Foreign Key)
+STAFF_ADDRESS: Attributes - Staff_Address_ID (Primary Key), Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State, StaffID (Foreign Key)   
 
 # Associative Entity  
-ORDER_ITEM_have_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID  (Foreign Key)   
+ORDER_ITEM_have_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID  (Foreign Key)    
 
-STAFF_make_ORDER_ITEM: Attributes - ItemID (Foreign Key), StaffID (Foreign Key)   
+STAFF_make_ORDER_ITEM: Attributes - ItemID (Foreign Key), StaffID (Foreign Key)    
 
 
 # Relationships:
-CAKE_TYPE has one RECIPE: RECIPE is used for one CAKE_TYPE. There is One-to-One relationship between CAKE_TYPE and RECIPE  
+CAKE_TYPE has one RECIPE: RECIPE is used for one CAKE_TYPE. There is One-to-One relationship between CAKE_TYPE and RECIPE   
 
-Many STAFF will make ORDER_ITEM: Many ORDER_ITEM  made by many STAFF. There is a Many-to-Many relationship between STAFF and ORDER_ITEM   
+Many STAFF will make ORDER_ITEM: Many ORDER_ITEM  made by many STAFF. There is a Many-to-Many relationship between STAFF and ORDER_ITEM    
 
-STAFF have one STAFF_ADDRESS: ADDRESS may have one or more STAFF. There is One-to-Many relationship between STAFF and STAFF_ADDRESS   
+STAFF have one STAFF_ADDRESS: ADDRESS may have one or more STAFF. There is One-to-Many relationship between STAFF and STAFF_ADDRESS    
 
-ORDER has many ORDER_ITEM's : ORDER_ITEM has one ORDER. There is One-to-Many relationship between ORDER and ORDER_ITEM's   
+ORDER has many ORDER_ITEM's : ORDER_ITEM has one ORDER. There is One-to-Many relationship between ORDER and ORDER_ITEM's    
 
-ORDER_ITEM have one CAKE_TYPE: CAKE_TYPE can have one or more ORDER_ITEM. There is a One-to-Many relationship between ORDER_ITEM and CAKE_TYPE   
+ORDER_ITEM have one CAKE_TYPE: CAKE_TYPE can have one or more ORDER_ITEM. There is a One-to-Many relationship between ORDER_ITEM and CAKE_TYPE    
 
-ORDER_ITEM have one SIZE_SHAPE: SIZE_SHAPE can have one or more ORDER_ITEM. There is a One-to-Many relationship between ORDER_ITEM and SIZE_SHAPE   
+ORDER_ITEM have one SIZE_SHAPE: SIZE_SHAPE can have one or more ORDER_ITEM. There is a One-to-Many relationship between ORDER_ITEM and SIZE_SHAPE    
 
-ORDER_ITEM have one or more DECORATIONS: DECORATIONS have one or more ORDER_ITEM. There is a Many-to-Many relationship between ORDER_ITEM and DECORATIONS   
+ORDER_ITEM have one or more DECORATIONS: DECORATIONS have one or more ORDER_ITEM. There is a Many-to-Many relationship between ORDER_ITEM and DECORATIONS      
 
-CUSTOMER have one CUSTOMER_ADDRESS: CUSTOMER_ADDRESS may have one or more CUSTOMER. There is One-to-Many relationship between CUSTOMER and CUSTOMER_ADDRESS   
+CUSTOMER have one CUSTOMER_ADDRESS: CUSTOMER_ADDRESS may have one or more CUSTOMER. There is One-to-Many relationship between CUSTOMER and CUSTOMER_ADDRESS     
 
 
 
