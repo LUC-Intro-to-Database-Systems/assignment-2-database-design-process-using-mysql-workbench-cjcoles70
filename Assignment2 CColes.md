@@ -63,7 +63,7 @@ ORDER_ITEM: Attributes - ItemID (Primary Key), Item_Description, Order_message,I
 
 DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name , Dec_Shape, Dec_Color, Dec_Sell_Price   
 
-CUSTOMER: Attributes - CustomerID(Primary Key) , Customer_AddressID,Customer_Phone,Customer_Email   
+CUSTOMER: Attributes - CustomerID(Primary Key) , Customer_Name, Customer_Phone,Customer_Email   
 
 CUSTOMER_ADDRESS: Attributes - Cust_Address_ID(Primary Key) , Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State, CustomerID (Foreign Key)   
 
@@ -90,7 +90,9 @@ ORDER_ITEM have one SIZE_SHAPE: SIZE_SHAPE can have one or more ORDER_ITEM. Ther
 
 ORDER_ITEM have one or more DECORATIONS: DECORATIONS have one or more ORDER_ITEM. There is a Many-to-Many relationship between ORDER_ITEM and DECORATIONS      
 
-CUSTOMER have one CUSTOMER_ADDRESS: CUSTOMER_ADDRESS may have one or more CUSTOMER. There is One-to-Many relationship between CUSTOMER and CUSTOMER_ADDRESS     
+CUSTOMER have one CUSTOMER_ADDRESS: CUSTOMER_ADDRESS may have one or more CUSTOMER. There is One-to-Many relationship between CUSTOMER and CUSTOMER_ADDRESS   
+
+Customer can have one or many ORDER : ORDER has one CUSTOMER. There is One-to-Many relationship between CUSTOMER and ORDER
 
 
 
