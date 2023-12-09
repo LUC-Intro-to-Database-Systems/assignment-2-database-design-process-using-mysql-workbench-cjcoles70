@@ -94,6 +94,146 @@ CUSTOMER have one CUSTOMER_ADDRESS: CUSTOMER_ADDRESS may have one or more CUSTOM
 
 Customer can have one or many ORDER : ORDER has one CUSTOMER. There is One-to-Many relationship between CUSTOMER and ORDER
 
+![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/cc93d840-7b21-437c-bf77-200a18202017)
+
+``` 
+-- create the database CosmicCakes
+CREATE database CosmicCakes;
+
+-- Use CosmicCakes database to add tables to 
+USE cosmiccakes;
+
+-- Create RECIPE table
+CREATE TABLE RECIPE (
+    RecipeID INT  AUTO_INCREMENT PRIMARY KEY,
+    Recipe_Name VARCHAR(255) NOT NULL,
+    Recipe_Ingredients TEXT,
+    Recipe_Instructions TEXT,
+    Recipe_date DATE
+);
+
+-- Create STAFF table
+CREATE TABLE STAFF (
+    StaffID INT  AUTO_INCREMENT PRIMARY KEY,
+    Staff_FirstName VARCHAR(50) NOT NULL,
+    Staff_LastName VARCHAR(50) NOT NULL,
+    Staff_Position VARCHAR(50) CHECK (Staff_Position IN ('Baker', 'Decorator','Shop Assistant')),
+    Staff_Phone VARCHAR(15) NOT NULL,
+    Staff_email VARCHAR(255) NOT NULL
+);
+
+-- Create CAKE_TYPE table
+CREATE TABLE CAKE_TYPE (
+    CakeID INT  AUTO_INCREMENT PRIMARY KEY ,
+    CakeName VARCHAR(255) NOT NULL,
+    Cake_Category VARCHAR(50) CHECK (Cake_Category IN('Traditional', 'Seasonal', 'Special Occasion')),
+    RecipeID INT,
+    FOREIGN KEY (RecipeID) REFERENCES RECIPE(RecipeID)
+);
+
+-- Create SIZE_SHAPE table
+CREATE TABLE SIZE_SHAPE (
+    SizeShapeID INT  AUTO_INCREMENT PRIMARY KEY,
+    Shape VARCHAR(50) NOT NULL CHECK (Shape IN('Round','Square')) ,
+    Size VARCHAR(50) NOT NULL CHECK (Size IN('6"','8"','12"'))
+);
+
+-- Create CAKE_PRICE table
+CREATE TABLE CAKE_PRICE (
+    CakeID INT AUTO_INCREMENT PRIMARY KEY,
+    SizeShapeID INT,
+    Cake_Sell_Price DECIMAL(10, 2),
+    FOREIGN KEY (SizeShapeID) REFERENCES SIZE_SHAPE(SizeShapeID) ON DELETE CASCADE ON UPDATE RESTRICT,
+    FOREIGN KEY (CakeID) REFERENCES CAKE_TYPE(CakeID) ON DELETE CASCADE ON UPDATE RESTRICT,
+    UNIQUE ( CakeID,SizeShapeID)
+);
+
+-- Create ORDER table
+CREATE TABLE ORDER_TABLE (
+    OrderID INT  AUTO_INCREMENT PRIMARY KEY,
+    Order_Date DATE NOT NULL,
+    CustomerID INT,
+    Payment_Status VARCHAR(20) CHECK(Payment_Status IN('Paid','Unpaid')) DEFAULT 'Unpaid',
+    FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID) ON DELETE RESTRICT
+   
+);
+
+-- Create ORDER_ITEM table
+CREATE TABLE ORDER_ITEM (
+    ItemID INT  AUTO_INCREMENT PRIMARY KEY,
+    Item_Description TEXT NOT NULL,
+    Order_message TEXT,
+    Item_Qty INT,
+    CakeID INT NOT NULL,
+    SizeShapeID INT NOT NULL,
+    Item_OrderID INT NOT NULL,
+    FOREIGN KEY (CakeID) REFERENCES CAKE_TYPE(CakeID) ON DELETE RESTRICT,
+    FOREIGN KEY (SizeShapeID) REFERENCES SIZE_SHAPE(SizeShapeID) ON DELETE RESTRICT,
+    FOREIGN KEY (Item_OrderID) REFERENCES ORDER_TABLE(OrderID) ON DELETE CASCADE,
+    UNIQUE(CakeID,SizeShapeID,Item_OrderID)
+);
+
+-- Create DECORATIONS table
+CREATE TABLE DECORATIONS (
+    DecorationID INT  AUTO_INCREMENT PRIMARY KEY ,
+    Dec_Type VARCHAR(50) NOT NULL,
+    Dec_Name VARCHAR(50) NOT NULL,
+    Dec_Shape VARCHAR(50),
+    Dec_Color VARCHAR(50),
+    Dec_Sell_Price DECIMAL(10, 2) NOT NULL
+);
+
+-- Create CUSTOMER table
+CREATE TABLE CUSTOMER (
+    CustomerID INT  AUTO_INCREMENT PRIMARY KEY ,
+    Customer_Name VARCHAR(50) NOT NULL,
+    Customer_Phone VARCHAR(15),
+    Customer_Email VARCHAR(255),
+    UNIQUE (Customer_Name, Customer_Email)
+);
+
+-- Create CUSTOMER_ADDRESS table
+CREATE TABLE CUSTOMER_ADDRESS (
+    Cust_Address_ID INT  AUTO_INCREMENT PRIMARY KEY ,
+    Cust_Address1 VARCHAR(255) NOT NULL,
+    Cust_Address2 VARCHAR(255),
+    Cust_City VARCHAR(50) NOT NULL,
+    Cust_ZIP VARCHAR(5) NOT NULL,
+    Cust_State VARCHAR(2) NOT NULL,
+    CustomerID INT UNIQUE,
+    FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID) ON DELETE CASCADE
+);
+
+-- Create STAFF_ADDRESS table
+CREATE TABLE STAFF_ADDRESS (
+    Staff_Address_ID INT AUTO_INCREMENT PRIMARY KEY  ,
+    Staff_Address1 VARCHAR(255) NOT NULL,
+    Staff_Address2 VARCHAR(255),
+    Staff_City VARCHAR(50) NOT NULL,
+    Staff_ZIP VARCHAR(5),
+    Staff_State VARCHAR(2),
+    StaffID INT UNIQUE,
+    FOREIGN KEY (StaffID) REFERENCES STAFF(StaffID) ON DELETE CASCADE
+);
+
+-- Create ORDER_ITEM_have_DECORATIONS table (Associative Entity)
+CREATE TABLE ORDER_ITEM_have_DECORATIONS (
+    ItemID INT,
+    DecorationID INT,
+    PRIMARY KEY (ItemID, DecorationID),
+    FOREIGN KEY (ItemID) REFERENCES ORDER_ITEM(ItemID) ON DELETE CASCADE,
+    FOREIGN KEY (DecorationID) REFERENCES DECORATIONS(DecorationID) ON DELETE CASCADE
+);
+
+-- Create STAFF_make_ORDER_ITEM table (Associative Entity)
+CREATE TABLE STAFF_make_ORDER_ITEM (
+    ItemID INT,
+    StaffID INT,
+    PRIMARY KEY (ItemID, StaffID),
+    FOREIGN KEY (ItemID) REFERENCES ORDER_ITEM(ItemID)ON DELETE CASCADE ,
+    FOREIGN KEY (StaffID) REFERENCES STAFF(StaffID) ON DELETE CASCADE
+);
+```
 
 
 
