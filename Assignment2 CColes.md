@@ -28,7 +28,6 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 **Decoration and Presentation:**  
 
 > - Cake Decoration: Cake decorators work on the visual appeal of cakes, using various techniques like frosting, fondant, and edible decorations to create visually stunning and thematic designs.  
-> - Packaging: Cake decorators are responsible for packaging to ensure that cakes are transported safely and maintain their freshness.
 
 
 **Retail Sales:**
@@ -37,12 +36,10 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 **Online Presence:**  
 
-> - Online Ordering: The company as a website where customer can select products, specify and customizations and place orders.  
-> - Social Media Presence: Social media is used to showcase their creations, connect with customers, and promote special offers.  
+> - Online Ordering: The company as a website where customer can select products, specify and customizations and place orders.  Orders are not completed until payment has been made.  
 
 # Definitions  
 
-**Skilled Bakers:**  Skilled Bakers are bakers those that have served the company for a minimum of 3 years, have worked themselves up through the ranks and whose cakes are celebrated by their peers.   
 **Special Occasions:**  Cakes for Special Occasions are typically for birthdays, weddings, and anniversaries.   
 **Classic** cakes are old time favorites such as ' Old-Fashioned Carrot Cake with Cream Cheese Frosting ', 'Spiced Devil's Food Cake' or 'Oklahoma Coconut Poke Cake'  
 **Seasonal** cakes are more aligned to Thanksgiving, Christmas, 4th July etc. ' Apple Spice Cake with Brown Sugar Frosting' or ' Apple Gingerbread Skillet Cake'   
@@ -53,61 +50,41 @@ RECIPE: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Re
 
 STAFF: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email 
 
-CAKE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),RecipeID (Foreign Key)
+CAKE_TYPE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),RecipeID (Foreign Key)
 
-SIZESHAPE: Attributes - SizeShapeID, Shape, Size
+SIZE_SHAPE: Attributes - SizeShapeID (Primary Key), Shape, Size
 
-ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),Order_has_itemId (Foreign Key),Order_status (Draft or Firm)  
+CAKE_PRICE: Attributes - CakeID (Primary Key), SizeShapeID, Cake_Sell_Price
 
-ITEM: Attributes - Item_ID, Item_Description, Item_has_DecorationsID (Foreign Key), Order_message, CakeID (Foreign Key), SizeShapeID (Foreign Key),Item_Qty,Item_has_decorationsID (Foreign Key)
+ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),payment_status (Paid or Unpaid) ,Order_has_itemId (Foreign Key) 
 
-FIRMORDERITEMS: Attributes - OrderID, Item_ID, BakerID, DecoratorID
+ORDER_ITEM: Attributes - ItemID (Primary Key), Item_Description, Order_message,Item_Qty, CakeID (Foreign Key), Size_ShapeID (Foreign Key), Item_has_DecorationsID (Foreign Key)
 
-DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name , Dec_Shape, Dec_Color
+DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name , Dec_Shape, Dec_Color, Dec_Sell_Price
 
-CUSTOMER: Attributes - CustomerID, Customer_AddressID,Customer_Phone,Customer_Email
+CUSTOMER: Attributes - CustomerID(Primary Key) , Customer_AddressID,Customer_Phone,Customer_Email
 
-CUSTOMER_ADDRESS: Attributes - Cust_Address_ID, Cust_CustomerID, Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State
+CUSTOMER_ADDRESS: Attributes - Cust_Address_ID(Primary Key) , Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State, CustomerID (Foreign Key)
 
-STAFF_ADDRESS: Attributes - Staff_Address_ID, StaffomerID, Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State
+STAFF_ADDRESS: Attributes - Staff_Address_ID (Primary Key), Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State, StaffID (Foreign Key)
 
 # Associative Entity  
-ORDER_has_ITEM: Attributes - ItemID (Foreign Key), OrderID (Foreign Key)   
-ITEM_has_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID   
+ORDER_ITEM_have_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID  (Foreign Key) 
+STAFF_make_ORDER_ITEM: Attributes - ItemID (Foreign Key), StaffID (Foreign Key)
 
 
 # Relationships:
-
-a CAKE has a RECIPE: a RECIPE is used for many CAKE. There is One-to-Many relationship between Recipe and Cake
-
-one STAFF will bake and one Staff will decorate many FIRMORDERITEMS: FIRMORDERITEMS are baked and decorated by many STAFF. There is a One-to-Many relationship between Staff and firm order items  
- 
-
-One-to-Many relationship between Cake and Decoration (A cake can have multiple decorations, but each decoration is for one cake).  
-
-Many-to-Many relationship between Order and Cake (An order can include multiple cakes, and a cake can be part of multiple orders). This relationship is represented using an *associative entity* .  
-
+CAKE_TYPE has one RECIPE: RECIPE is used for one CAKE_TYPE. There is One-to-One relationship between CAKE_TYPE and RECIPE
+Many STAFF will make ORDER_ITEM: Many ORDER_ITEM  made by many STAFF. There is a Many-to-Many relationship between STAFF and ORDER_ITEM
+STAFF have one STAFF_ADDRESS: ADDRESS may have one or more STAFF. There is One-to-Many relationship between STAFF and STAFF_ADDRESS
+ORDER has many ORDER_ITEM's : ORDER_ITEM has one ORDER. There is One-to-Many relationship between ORDER and ORDER_ITEM's
+ORDER_ITEM have one CAKE_TYPE: CAKE_TYPE can have one or more ORDER_ITEM. There is a One-to-Many relationship between ORDER_ITEM and CAKE_TYPE
+ORDER_ITEM have one SIZE_SHAPE: SIZE_SHAPE can have one or more ORDER_ITEM. There is a One-to-Many relationship between ORDER_ITEM and SIZE_SHAPE
+ORDER_ITEM have one or more DECORATIONS: DECORATIONS have one or more ORDER_ITEM. There is a Many-to-Many relationship between ORDER_ITEM and DECORATIONS
+CUSTOMER have one CUSTOMER_ADDRESS: CUSTOMER_ADDRESS may have one or more CUSTOMER. There is One-to-Many relationship between CUSTOMER and CUSTOMER_ADDRESS
 
 
-One-to-Many relationship between Cake and Cupcake (A cake can have multiple cupcakes, but each cupcake is associated with one cake).  
 
-One-to-Many relationship between Cake and Baker (A cake is associated with one baker, but a baker may have multiple cakes).  
 
-One-to-Many relationship between Order and Packaging (An order can have one packaging type, but a packaging type can be used for multiple orders).  
 
-One-to-Many relationship between Customer and Order (A customer can place multiple orders, but each order is placed by one customer).  
-
-Many-to-Many relationship between Order and Decoration (An order can include multiple decorations, and a decoration can be part of multiple orders). This relationship is represented using an ***associative entity*** .  
-
-Many-to-Many relationship between Cake and IcingFondant (A cake can have multiple icing/fondant options, and an icing/fondant option can be used for multiple cakes). This relationship is represented using an ***associative entity*** .  
-
-Many-to-Many relationship between Order and Cupcake (An order can include multiple cupcakes, and a cupcake can be part of multiple orders). This relationship is represented using an ***associative entity*** .  
-
-One-to-Many relationship between Order and Customer (An order is placed by one customer, but a customer may place multiple orders).  
-
-One-to-Many relationship between Order and Baker (An order includes cakes baked by one baker, but a baker may have multiple orders).  
-
-One-to-Many relationship between Cake and OnlineOrder (A cake can be part of an online order, but an online order may include multiple cakes).  
-
-One-to-Many relationship between Order and SocialMedia (An order may be promoted on social media, but a social media post may include multiple orders).  
 
