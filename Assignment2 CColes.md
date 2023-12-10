@@ -55,25 +55,21 @@ CAKE_TYPE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Se
 
 SIZE_SHAPE: Attributes - SizeShapeID (Primary Key), Shape, Size   
 
-CAKE_PRICE: Attributes - CakeID (Primary Key), SizeShapeID, Cake_Sell_Price   
+ORDER_TABLE: Attributes - OrderID (Primary Key), Order_Date, payment_status (Paid or Unpaid) ,customer_CustomerID (Foreign Key)   
 
-ORDER: Attributes - OrderID (Primary Key), Order_Date, CustomerID (Foreign Key),payment_status (Paid or Unpaid) ,Order_has_itemId (Foreign Key)   
+ORDER_ITEM: Attributes - ItemID (Primary Key), Order_message,Item_Qty, cake_type_CakeID (Foreign Key)
 
-ORDER_ITEM: Attributes - ItemID (Primary Key), Item_Description, Order_message,Item_Qty, CakeID (Foreign Key), Size_ShapeID (Foreign Key), Item_has_DecorationsID (Foreign  
- Key)
+DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Description , Dec_Sell_Price   
 
-DECORATIONS: Attributes - DecorationID (Primary Key), Dec_Type, Dec_Name , Dec_Shape, Dec_Color, Dec_Sell_Price   
-
-CUSTOMER: Attributes - CustomerID(Primary Key) , Customer_Name, Customer_Phone,Customer_Email   
-
-CUSTOMER_ADDRESS: Attributes - Cust_Address_ID(Primary Key) , Cust_Address1, Cust_Address2,Cust_City,Cust_ZIP, Cust_State, CustomerID (Foreign Key)   
-
-STAFF_ADDRESS: Attributes - Staff_Address_ID (Primary Key), Staff_Address1, Staff_Address2,Staff_City,Staff_ZIP, Staff_State, StaffID (Foreign Key)   
+CUSTOMER: Attributes - CustomerID(Primary Key) , Customer_Name, Customer_Phone,Customer_Email ,customer_address1, customer_address2, customer_City,
+customer_ZIP, customer_State   
 
 # Associative Entity  
 ORDER_ITEM_have_DECORATIONS: Attributes - ItemID (Foreign Key),DecorationID  (Foreign Key)    
 
-STAFF_make_ORDER_ITEM: Attributes - ItemID (Foreign Key), StaffID (Foreign Key)    
+STAFF_make_ORDER_ITEM: Attributes - ItemID (Foreign Key), StaffID (Foreign Key)  
+
+ORDER_ITEM_has_ORDER_TABLE: Attributes order_item_ItemID (Foreign Key), order_table_OrderID (Foreign Key)
 
 
 # Relationships:
