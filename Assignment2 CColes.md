@@ -94,146 +94,258 @@ CUSTOMER have one CUSTOMER_ADDRESS: CUSTOMER_ADDRESS may have one or more CUSTOM
 
 Customer can have one or many ORDER : ORDER has one CUSTOMER. There is One-to-Many relationship between CUSTOMER and ORDER
 
-![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/cc93d840-7b21-437c-bf77-200a18202017)
+![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/65bcab9a-2038-4f80-af17-cc801ee84cdc)
 
-``` 
--- create the database CosmicCakes
-CREATE database CosmicCakes;
-
--- Use CosmicCakes database to add tables to 
-USE cosmiccakes;
-
--- Create RECIPE table
-CREATE TABLE RECIPE (
-    RecipeID INT  AUTO_INCREMENT PRIMARY KEY,
-    Recipe_Name VARCHAR(255) NOT NULL,
-    Recipe_Ingredients TEXT,
-    Recipe_Instructions TEXT,
-    Recipe_date DATE
-);
-
--- Create STAFF table
-CREATE TABLE STAFF (
-    StaffID INT  AUTO_INCREMENT PRIMARY KEY,
-    Staff_FirstName VARCHAR(50) NOT NULL,
-    Staff_LastName VARCHAR(50) NOT NULL,
-    Staff_Position VARCHAR(50) CHECK (Staff_Position IN ('Baker', 'Decorator','Shop Assistant')),
-    Staff_Phone VARCHAR(15) NOT NULL,
-    Staff_email VARCHAR(255) NOT NULL
-);
-
--- Create CAKE_TYPE table
-CREATE TABLE CAKE_TYPE (
-    CakeID INT  AUTO_INCREMENT PRIMARY KEY ,
-    CakeName VARCHAR(255) NOT NULL,
-    Cake_Category VARCHAR(50) CHECK (Cake_Category IN('Traditional', 'Seasonal', 'Special Occasion')),
-    RecipeID INT,
-    FOREIGN KEY (RecipeID) REFERENCES RECIPE(RecipeID)
-);
-
--- Create SIZE_SHAPE table
-CREATE TABLE SIZE_SHAPE (
-    SizeShapeID INT  AUTO_INCREMENT PRIMARY KEY,
-    Shape VARCHAR(50) NOT NULL CHECK (Shape IN('Round','Square')) ,
-    Size VARCHAR(50) NOT NULL CHECK (Size IN('6"','8"','12"'))
-);
-
--- Create CAKE_PRICE table
-CREATE TABLE CAKE_PRICE (
-    CakeID INT AUTO_INCREMENT PRIMARY KEY,
-    SizeShapeID INT,
-    Cake_Sell_Price DECIMAL(10, 2),
-    FOREIGN KEY (SizeShapeID) REFERENCES SIZE_SHAPE(SizeShapeID) ON DELETE CASCADE ON UPDATE RESTRICT,
-    FOREIGN KEY (CakeID) REFERENCES CAKE_TYPE(CakeID) ON DELETE CASCADE ON UPDATE RESTRICT,
-    UNIQUE ( CakeID,SizeShapeID)
-);
-
--- Create ORDER table
-CREATE TABLE ORDER_TABLE (
-    OrderID INT  AUTO_INCREMENT PRIMARY KEY,
-    Order_Date DATE NOT NULL,
-    CustomerID INT,
-    Payment_Status VARCHAR(20) CHECK(Payment_Status IN('Paid','Unpaid')) DEFAULT 'Unpaid',
-    FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID) ON DELETE RESTRICT
-   
-);
-
--- Create ORDER_ITEM table
-CREATE TABLE ORDER_ITEM (
-    ItemID INT  AUTO_INCREMENT PRIMARY KEY,
-    Item_Description TEXT NOT NULL,
-    Order_message TEXT,
-    Item_Qty INT,
-    CakeID INT NOT NULL,
-    SizeShapeID INT NOT NULL,
-    Item_OrderID INT NOT NULL,
-    FOREIGN KEY (CakeID) REFERENCES CAKE_TYPE(CakeID) ON DELETE RESTRICT,
-    FOREIGN KEY (SizeShapeID) REFERENCES SIZE_SHAPE(SizeShapeID) ON DELETE RESTRICT,
-    FOREIGN KEY (Item_OrderID) REFERENCES ORDER_TABLE(OrderID) ON DELETE CASCADE,
-    UNIQUE(CakeID,SizeShapeID,Item_OrderID)
-);
-
--- Create DECORATIONS table
-CREATE TABLE DECORATIONS (
-    DecorationID INT  AUTO_INCREMENT PRIMARY KEY ,
-    Dec_Type VARCHAR(50) NOT NULL,
-    Dec_Name VARCHAR(50) NOT NULL,
-    Dec_Shape VARCHAR(50),
-    Dec_Color VARCHAR(50),
-    Dec_Sell_Price DECIMAL(10, 2) NOT NULL
-);
-
--- Create CUSTOMER table
-CREATE TABLE CUSTOMER (
-    CustomerID INT  AUTO_INCREMENT PRIMARY KEY ,
-    Customer_Name VARCHAR(50) NOT NULL,
-    Customer_Phone VARCHAR(15),
-    Customer_Email VARCHAR(255),
-    UNIQUE (Customer_Name, Customer_Email)
-);
-
--- Create CUSTOMER_ADDRESS table
-CREATE TABLE CUSTOMER_ADDRESS (
-    Cust_Address_ID INT  AUTO_INCREMENT PRIMARY KEY ,
-    Cust_Address1 VARCHAR(255) NOT NULL,
-    Cust_Address2 VARCHAR(255),
-    Cust_City VARCHAR(50) NOT NULL,
-    Cust_ZIP VARCHAR(5) NOT NULL,
-    Cust_State VARCHAR(2) NOT NULL,
-    CustomerID INT UNIQUE,
-    FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID) ON DELETE CASCADE
-);
-
--- Create STAFF_ADDRESS table
-CREATE TABLE STAFF_ADDRESS (
-    Staff_Address_ID INT AUTO_INCREMENT PRIMARY KEY  ,
-    Staff_Address1 VARCHAR(255) NOT NULL,
-    Staff_Address2 VARCHAR(255),
-    Staff_City VARCHAR(50) NOT NULL,
-    Staff_ZIP VARCHAR(5),
-    Staff_State VARCHAR(2),
-    StaffID INT UNIQUE,
-    FOREIGN KEY (StaffID) REFERENCES STAFF(StaffID) ON DELETE CASCADE
-);
-
--- Create ORDER_ITEM_have_DECORATIONS table (Associative Entity)
-CREATE TABLE ORDER_ITEM_have_DECORATIONS (
-    ItemID INT,
-    DecorationID INT,
-    PRIMARY KEY (ItemID, DecorationID),
-    FOREIGN KEY (ItemID) REFERENCES ORDER_ITEM(ItemID) ON DELETE CASCADE,
-    FOREIGN KEY (DecorationID) REFERENCES DECORATIONS(DecorationID) ON DELETE CASCADE
-);
-
--- Create STAFF_make_ORDER_ITEM table (Associative Entity)
-CREATE TABLE STAFF_make_ORDER_ITEM (
-    ItemID INT,
-    StaffID INT,
-    PRIMARY KEY (ItemID, StaffID),
-    FOREIGN KEY (ItemID) REFERENCES ORDER_ITEM(ItemID)ON DELETE CASCADE ,
-    FOREIGN KEY (StaffID) REFERENCES STAFF(StaffID) ON DELETE CASCADE
-);
 ```
+-- MySQL Script generated by MySQL Workbench
+-- Sun Dec 10 10:37:45 2023
+-- Model: New Model    Version: 1.0
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema cosmiccakes
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema cosmiccakes
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `cosmiccakes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `cosmiccakes` ;
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`recipe`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`recipe` (
+  `RecipeID` INT NOT NULL AUTO_INCREMENT,
+  `Recipe_Name` VARCHAR(255) NOT NULL,
+  `Recipe_Ingredients` TEXT NULL DEFAULT NULL,
+  `Recipe_Instructions` TEXT NULL DEFAULT NULL,
+  `Recipe_date` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`RecipeID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`size_shape`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`size_shape` (
+  `SizeShapeID` INT NOT NULL AUTO_INCREMENT,
+  `Shape` VARCHAR(50) NOT NULL,
+  `Size` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`SizeShapeID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`cake_type`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`cake_type` (
+  `CakeID` INT NOT NULL AUTO_INCREMENT,
+  `CakeName` VARCHAR(255) NOT NULL,
+  `Cake_Category` VARCHAR(50) NULL DEFAULT NULL,
+  `RecipeID` INT NOT NULL,
+  `SizeShapeID` INT NOT NULL,
+  `Cake_Price` DECIMAL(6,2) NOT NULL,
+  PRIMARY KEY (`CakeID`),
+  INDEX `RecipeID` (`RecipeID` ASC) VISIBLE,
+  INDEX `SizeShapeID_idx` (`SizeShapeID` ASC) VISIBLE,
+  CONSTRAINT `cake_type_ibfk_1`
+    FOREIGN KEY (`RecipeID`)
+    REFERENCES `cosmiccakes`.`recipe` (`RecipeID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `SizeShapeID`
+    FOREIGN KEY (`SizeShapeID`)
+    REFERENCES `cosmiccakes`.`size_shape` (`SizeShapeID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`customer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`customer` (
+  `CustomerID` INT NOT NULL AUTO_INCREMENT,
+  `Customer_Name` VARCHAR(50) NOT NULL,
+  `Customer_Phone` VARCHAR(15) NOT NULL,
+  `Customer_Email` VARCHAR(255) NOT NULL,
+  `customer_address1` VARCHAR(255) NOT NULL,
+  `customer_address2` VARCHAR(255) NULL,
+  `customer_City` VARCHAR(50) NOT NULL,
+  `customer_ZIP` INT(5) NOT NULL,
+  `customer_State` VARCHAR(2) NOT NULL,
+  PRIMARY KEY (`CustomerID`),
+  UNIQUE INDEX `Customer_Name` (`Customer_Name` ASC, `Customer_Email` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`decorations`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`decorations` (
+  `DecorationID` INT NOT NULL AUTO_INCREMENT,
+  `Dec_Type` VARCHAR(50) NOT NULL,
+  `Dec_Description` TEXT NOT NULL,
+  `Dec_Sell_Price` DECIMAL(4,2) NOT NULL,
+  PRIMARY KEY (`DecorationID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`order_item`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`order_item` (
+  `ItemID` INT NOT NULL AUTO_INCREMENT,
+  `Order_message` TEXT NULL DEFAULT NULL,
+  `Item_Qty` INT NULL DEFAULT NULL,
+  `cake_type_CakeID` INT NOT NULL,
+  PRIMARY KEY (`ItemID`),
+  INDEX `fk_order_item_cake_type1_idx` (`cake_type_CakeID` ASC) VISIBLE,
+  CONSTRAINT `fk_order_item_cake_type1`
+    FOREIGN KEY (`cake_type_CakeID`)
+    REFERENCES `cosmiccakes`.`cake_type` (`CakeID`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`order_table`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`order_table` (
+  `OrderID` INT NOT NULL AUTO_INCREMENT,
+  `Order_Date` DATE NOT NULL,
+  `Payment_Status` VARCHAR(20) NULL DEFAULT NULL,
+  `customer_CustomerID` INT NOT NULL,
+  PRIMARY KEY (`OrderID`),
+  INDEX `fk_order_table_customer1_idx` (`customer_CustomerID` ASC) VISIBLE,
+  CONSTRAINT `fk_order_table_customer1`
+    FOREIGN KEY (`customer_CustomerID`)
+    REFERENCES `cosmiccakes`.`customer` (`CustomerID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`staff`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`staff` (
+  `StaffID` INT NOT NULL AUTO_INCREMENT,
+  `Staff_Name` VARCHAR(50) NOT NULL,
+  `Staff_Phone` VARCHAR(15) NOT NULL,
+  `Staff_email` VARCHAR(255) NOT NULL,
+  `Staff_Address1` VARCHAR(255) NOT NULL,
+  `Staff_Address2` VARCHAR(255) NULL,
+  `Staff_City` VARCHAR(50) NOT NULL,
+  `Staff_ZIP` INT(5) NOT NULL,
+  `Staff_State` CHAR(2) NOT NULL,
+  `Staff_Position` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`StaffID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`decorations_has_order_item`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`decorations_has_order_item` (
+  `decorations_DecorationID` INT NOT NULL,
+  `order_item_ItemID` INT NOT NULL,
+  PRIMARY KEY (`decorations_DecorationID`, `order_item_ItemID`),
+  INDEX `fk_decorations_has_order_item_order_item1_idx` (`order_item_ItemID` ASC) VISIBLE,
+  INDEX `fk_decorations_has_order_item_decorations1_idx` (`decorations_DecorationID` ASC) VISIBLE,
+  CONSTRAINT `fk_decorations_has_order_item_decorations1`
+    FOREIGN KEY (`decorations_DecorationID`)
+    REFERENCES `cosmiccakes`.`decorations` (`DecorationID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_decorations_has_order_item_order_item1`
+    FOREIGN KEY (`order_item_ItemID`)
+    REFERENCES `cosmiccakes`.`order_item` (`ItemID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`staff_makes_order_item`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`staff_makes_order_item` (
+  `staff_StaffID` INT NOT NULL,
+  `order_item_ItemID` INT NOT NULL,
+  PRIMARY KEY (`staff_StaffID`, `order_item_ItemID`),
+  INDEX `fk_staff_has_order_item_order_item1_idx` (`order_item_ItemID` ASC) VISIBLE,
+  INDEX `fk_staff_has_order_item_staff1_idx` (`staff_StaffID` ASC) VISIBLE,
+  CONSTRAINT `fk_staff_makes_order_item_staff1`
+    FOREIGN KEY (`staff_StaffID`)
+    REFERENCES `cosmiccakes`.`staff` (`StaffID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_staff_makes_order_item_order_item1`
+    FOREIGN KEY (`order_item_ItemID`)
+    REFERENCES `cosmiccakes`.`order_item` (`ItemID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cosmiccakes`.`order_item_has_order_table`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosmiccakes`.`order_item_has_order_table` (
+  `order_item_ItemID` INT NOT NULL,
+  `order_table_OrderID` INT NOT NULL,
+  PRIMARY KEY (`order_item_ItemID`, `order_table_OrderID`),
+  INDEX `fk_order_item_has_order_table_order_table1_idx` (`order_table_OrderID` ASC) VISIBLE,
+  INDEX `fk_order_item_has_order_table_order_item1_idx` (`order_item_ItemID` ASC) VISIBLE,
+  CONSTRAINT `fk_order_item_has_order_table_order_item1`
+    FOREIGN KEY (`order_item_ItemID`)
+    REFERENCES `cosmiccakes`.`order_item` (`ItemID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_order_item_has_order_table_order_table1`
+    FOREIGN KEY (`order_table_OrderID`)
+    REFERENCES `cosmiccakes`.`order_table` (`OrderID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+```
+
 
 
 
