@@ -48,9 +48,10 @@ Here are some key activities and aspects associated with what a Cosmic Cakes typ
 
 RECIPE: Attributes - RecipeID (Primary Key), Recipe_Name, Recipe_Ingrediants, Recipe_Instructions, Recipe_date  
 
-STAFF: Attributes - StaffID (Primary Key), Staff_FirstName,Satff_LastName, Staff_Position, Staff_Phone,Staff_email   
+STAFF: Attributes - StaffID (Primary Key), Staff_Name,Staff_Position, Staff_Phone,Staff_email,Staff_Address1, Staff_Address2, Staff_City, Staff_ZIP, Staff_State, 
+Staff_Position   
 
-CAKE_TYPE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),RecipeID (Foreign Key)   
+CAKE_TYPE: Attributes - CakeID (Primary Key), CakeName,Cake_Category (Classic,Seasonal,Special Occasion),RecipeID (Foreign Key), SizeShapeID, Cake_Price   
 
 SIZE_SHAPE: Attributes - SizeShapeID (Primary Key), Shape, Size   
 
