@@ -95,10 +95,12 @@ Customer can have one or many ORDER : ORDER has one CUSTOMER. There is One-to-Ma
 
 ![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/c557ee4b-d233-487b-999a-9a1ec6bfbca2)   
 
-# QUERIES SAVED AS VIEWS
+# QUERIES. Please note that all queries have been saved as views in the database
 
 ```
---this is a query to list order_items, which satff member is preparing them and what is the status 
+CREATE VIEW Order_Items_View AS
+
+--this is a query to list order_items, which staff member is preparing them and what is the status 
 
 SELECT staff.Staff_Name, staff.Staff_Position,  order_item.Item_Qty, staff_makes_order_item.staff_makes_order_status, cake_type.CakeName, size_shape.Shape,size_shape.Size,ItemID
 
@@ -116,4 +118,26 @@ INNER JOIN size_shape
 ON cake_type.SizeShapeID = size_shape.SizeShapeID;
 ```
 ![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/e06d9d61-532f-4c10-a435-175c097632e0)
+
+```
+CREATE VIEW Order_Items_baking_View AS
+
+-- This query looks to list those order item that are in the baking process only
+
+SELECT staff.Staff_Name, staff.Staff_Position,  order_item.Item_Qty, staff_makes_order_item.staff_makes_order_status, cake_type.CakeName, size_shape.Shape,size_shape.Size
+
+FROM staff
+INNER JOIN staff_makes_order_item
+ON staff.StaffID = staff_makes_order_item.staff_StaffID AND staff_makes_order_item.staff_makes_order_status = 'Baking'
+
+INNER JOIN order_item
+ON staff_makes_order_item.order_item_ItemID = order_item.ItemID
+
+INNER JOIN cake_type
+ON order_item.cake_type_CakeID = cake_type.CakeID
+
+INNER JOIN size_shape
+ON cake_type.SizeShapeID = size_shape.SizeShapeID;
+```
+![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/664e3fb1-7fe5-49d6-a99f-0cd891b69bc2)
 
