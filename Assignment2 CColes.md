@@ -114,7 +114,6 @@ ON order_item.cake_type_CakeID = cake_type.CakeID
 
 INNER JOIN size_shape
 ON cake_type.SizeShapeID = size_shape.SizeShapeID;
-
+```
 ![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/e06d9d61-532f-4c10-a435-175c097632e0)
 
-```
