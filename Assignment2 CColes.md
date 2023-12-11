@@ -93,7 +93,8 @@ Customer can have one or many ORDER : ORDER has one CUSTOMER. There is One-to-Ma
 
 # ER Diagram
 
-![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/c557ee4b-d233-487b-999a-9a1ec6bfbca2)   
+![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/5f548ec2-9b01-4dde-8c6c-c48469a882f9)   
+
 
 # QUERIES. Please note that all queries have been saved as views in the database
 
