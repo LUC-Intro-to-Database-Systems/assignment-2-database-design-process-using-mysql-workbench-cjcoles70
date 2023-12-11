@@ -142,7 +142,6 @@ ON order_item.cake_type_CakeID = cake_type.CakeID
 INNER JOIN size_shape
 ON cake_type.SizeShapeID = size_shape.SizeShapeID;
 ```
-![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/664e3fb1-7fe5-49d6-a99f-0cd891b69bc2)
 
 ```
 CREATE VIEW customer_with_orders_view AS
