@@ -141,3 +141,33 @@ ON cake_type.SizeShapeID = size_shape.SizeShapeID;
 ```
 ![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/664e3fb1-7fe5-49d6-a99f-0cd891b69bc2)
 
+```
+CREATE VIEW customer_with_orders_view AS
+
+-- This query is listing customers with orders
+
+SELECT customer.Customer_Name, customer.Customer_Phone, order_table.Order_Date, order_table.Payment_Status, order_table.OrderID
+
+FROM customer
+INNER JOIN order_table
+ON customer.CustomerID = order_table.customer_CustomerID;
+```
+![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/f466bc22-65af-421c-9068-eab9e1dfc3a2)
+
+```
+CREATE VIEW customer_orders_with_items_view AS
+
+-- in this query we join all records from two existing views to show orders with items which are being made
+
+SELECT *
+FROM customer_with_orders_view
+INNER JOIN order_item_has_order_table
+ON customer_with_orders_view.OrderID = order_table_OrderID
+
+INNER JOIN Order_Items_View
+ON Order_Items_View.ItemID = order_item_has_order_table.order_item_ItemID;
+```
+![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/80630248-c9be-4fc7-afd3-a862f565579f)
+
+
+
