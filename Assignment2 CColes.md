@@ -98,7 +98,7 @@ Customer can have one or many ORDER : ORDER has one CUSTOMER. There is One-to-Ma
 # QUERIES SAVED AS VIEWS
 
 ```
---this is a query to list order_items, which satff member is preparing them and what is the status ** 
+--this is a query to list order_items, which satff member is preparing them and what is the status 
 
 SELECT staff.Staff_Name, staff.Staff_Position,  order_item.Item_Qty, staff_makes_order_item.staff_makes_order_status, cake_type.CakeName, size_shape.Shape,size_shape.Size,ItemID
 
@@ -114,4 +114,7 @@ ON order_item.cake_type_CakeID = cake_type.CakeID
 
 INNER JOIN size_shape
 ON cake_type.SizeShapeID = size_shape.SizeShapeID;
+
+![image](https://github.com/LUC-Intro-to-Database-Systems/assignment-2-database-design-process-using-mysql-workbench-cjcoles70/assets/149743690/e06d9d61-532f-4c10-a435-175c097632e0)
+
 ```
